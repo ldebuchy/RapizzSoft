@@ -1,3 +1,6 @@
+-- Utilisation de la base de données
+USE rapizzdb;
+
 -- Insertion des clients
 INSERT INTO CLIENT (id_client, nom, prenom, telephone, solde) VALUES (1, 'Riou', 'Frédéric', '+33 (0)1 43 32 18 19', 67.55);
 INSERT INTO CLIENT (id_client, nom, prenom, telephone, solde) VALUES (2, 'Briand', 'Arthur', '+33 (0)1 13 38 90 83', 12.25);
