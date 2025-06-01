@@ -272,10 +272,14 @@ public class SuiviCommandesPanel extends JPanel {
                             livreurDAO.incrementerRetards(livraison.getLivreur().getId());
                         }
                         
+                        // Mettre à jour le compteur de pizzas du client
+                        Client client = livraison.getClient();
+                        client.setNbPizzasAchetees(client.getNbPizzasAchetees() + 1);
+                        clientDAO.update(client);
+                        
                         // Si ce n'est pas une pizza gratuite et qu'elle doit être facturée
                         if (!estGratuite && facturation) {
                             // Vérifier si c'est maintenant la 10ème pizza
-                            Client client = livraison.getClient();
                             if (client.getNbPizzasAchetees() == 10) {
                                 JOptionPane.showMessageDialog(this,
                                     "Félicitations ! C'est la 10ème pizza de " + client.getNom() + " " + client.getPrenom() + 
@@ -286,7 +290,6 @@ public class SuiviCommandesPanel extends JPanel {
                         } else {
                             // Rembourser le client si ce n'est pas une pizza gratuite
                             if (!estGratuite) {
-                                Client client = livraison.getClient();
                                 client.setSolde(client.getSolde() + livraison.getPrix());
                                 JOptionPane.showMessageDialog(this,
                                     "Le client " + client.getNom() + " " + client.getPrenom() + 
