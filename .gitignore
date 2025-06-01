@@ -1,7 +1,17 @@
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# Fichiers de configuration avec données sensibles
+database.properties
+
+# Fichiers d'IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# Fichiers système
+.DS_Store
+Thumbs.db
 
 ### IntelliJ IDEA ###
 .idea/
@@ -10,15 +20,11 @@ target/
 .idea/compiler.xml
 .idea/libraries/
 *.iws
-*.iml
 *.ipr
 
 ### Eclipse ###
 .apt_generated
-.classpath
 .factorypath
-.project
-.settings
 .springBeans
 .sts4-cache
 
@@ -40,5 +46,5 @@ build/
 
 ### Personal addition ###
 *.pdf
-src/main/resources/config.properties
-
+src/main/resources/config/database.properties
+/dependency-reduced-pom.xml
